@@ -7,6 +7,9 @@ RUN wget https://github.com/nickola/web-console/releases/download/v0.9.7/webcons
   mv /webconsole/* /var/www/html/ && \
   rmdir /webconsole
 
+RUN curl -O https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh
+RUN bash Anaconda3-5.2.0-Linux-x86_64.sh -b
+RUN pip install gramex
 WORKDIR /var/www/html/
 
 RUN sed -i "s/\$USER \= '';/\$USER \= 'user';/g" webconsole.php && \
